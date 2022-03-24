@@ -1,0 +1,18 @@
+app:
+  db:
+    url: jdbc:postgresql://localhost:5432/MASTER
+    username: master
+    password: master
+
+datasource:
+  clickhouse:
+    username: default
+    password: ""
+    url: jdbc:clickhouse://localhost:5555/master
+
+spring:
+  datasource:
+    url: ${app.db.url}
+    username: ${app.db.username}
+    password: ${app.db.password}
+    driver-class-name: org.postgresql.Driver
