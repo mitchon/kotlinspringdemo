@@ -15,3 +15,11 @@ data class CityEntity (
     val cityUsers: List<UserEntity>
     )
 
+@Entity
+@Table(name = "cities", schema = "master_schema")
+data class InsertableCityEntity (
+    @Id
+    val id : UUID? = null,
+    val name: String
+)
+
