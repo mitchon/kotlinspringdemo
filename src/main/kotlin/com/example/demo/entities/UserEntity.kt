@@ -12,3 +12,12 @@ data class UserEntity (
         val name: String,
         val city_id: UUID?
         )
+
+@Entity
+@Table(name="users", schema = "master_schema")
+data class InsertableUserEntity (
+        @Id
+        val id: UUID? = null,
+        val name: String,
+        val city_id: UUID?
+)

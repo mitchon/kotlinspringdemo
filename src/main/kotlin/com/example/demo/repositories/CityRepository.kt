@@ -14,6 +14,7 @@ class CityRepository (
     private fun Database.cities(): Query<CityEntity> =
         this.find(CityEntity::class.java)
             .setDisableLazyLoading(true)
+            .fetch("cityUsers", "name, city_id")
 
     fun findAll(): List<CityEntity> = db.cities().findList();
 

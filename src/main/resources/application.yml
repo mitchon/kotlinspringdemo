@@ -1,18 +1,21 @@
 app:
-  db:
+  db1:
     url: jdbc:postgresql://localhost:5432/MASTER
     username: master
     password: master
-
-datasource:
-  clickhouse:
+  db2:
+    url: jdbc:clickhouse://localhost:8125
     username: default
     password: ""
-    url: jdbc:clickhouse://localhost:5555/master
+
 
 spring:
   datasource:
-    url: ${app.db.url}
-    username: ${app.db.username}
-    password: ${app.db.password}
+    url: ${app.db1.url}
+    username: ${app.db1.username}
+    password: ${app.db1.password}
     driver-class-name: org.postgresql.Driver
+
+logging:
+  level:
+    io.ebean.*: TRACE

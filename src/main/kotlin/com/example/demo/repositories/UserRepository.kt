@@ -1,5 +1,6 @@
 package com.example.demo.repositories
 
+import com.example.demo.entities.InsertableUserEntity
 import com.example.demo.entities.UserEntity
 import io.ebean.Database
 import io.ebean.Query
@@ -15,6 +16,8 @@ class UserRepository (
         this.find(UserEntity::class.java)
             .setDisableLazyLoading(true)
 
-    fun findAll(): List<UserEntity> = db.users().findList();
+    fun findAll(): List<UserEntity> = db.users().findList()
+
+    fun insert(user: InsertableUserEntity) = db.insert(user)
 
 }
